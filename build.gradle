@@ -42,10 +42,6 @@ repositories {
     maven { url = "https://maven.terraformersmc.com/" }
     maven { url = "https://maven.cafeteria.dev/releases" }
     maven {
-        name = 'Ladysnake Mods'
-        url = 'https://ladysnake.jfrog.io/artifactory/mods'
-    }
-    maven {
         name = "Progwml6 maven"
         url = "https://dvs1.progwml6.com/files/maven/"
     }
@@ -66,19 +62,16 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation("maven.modrinth:ae2:fabric-${project.ae2_version}") {
-        exclude group: "mezz.jei"
-        exclude group: "mcp.mobius.waila"
-        exclude group: "me.shedaniel"
-    }
+    modImplementation "appeng:appliedenergistics2-fabric:${project.ae2_version}"
     include modImplementation("teamreborn:energy:${project.tr_energy_version}") {
         exclude group: "net.fabricmc.fabric-api"
     }
     modImplementation "maven.modrinth:farmers-delight-fabric:${project.farmersdelight_version}"
 
-    modImplementation("com.simibubi.create:create-fabric-${project.minecraft_version}:${project.create_version}+${project.minecraft_version}")
-    modImplementation files("libs/createaddition+1.19.2-1.19.2-20221128a.jar")
-    modImplementation files("libs/AE2WTLib-12.8.4-beta.jar")
+
+    modImplementation("com.simibubi.create:create-fabric-${project.minecraft_version}:${project.create_version}+mc${project.minecraft_version}")
+    modImplementation files("libs/createaddition-fabric+1.20.1-0.9.0.jar")
+    modImplementation files("libs/ae2wtlib-15.0.1-beta.jar")
     modRuntimeOnly("me.shedaniel.cloth:cloth-config-fabric:${project.cloth}")
 
     if (project.runtime_itemlist_mod == "jei") {
@@ -107,7 +100,7 @@ dependencies {
         modCompileOnly("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}") {
             exclude group: "net.fabricmc.fabric-api"
         }
-        modImplementation "dev.emi:emi:${project.emi_version}"
+        modImplementation "dev.emi:emi-fabric:${project.emi_version}"
     } else {
         throw new GradleException("Invalid runtime_itemlist_mod value: " + project.runtime_itemlist_mod)
     }

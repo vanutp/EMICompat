@@ -63,7 +63,7 @@ public class EmiCookingPotRecipe implements EmiRecipe {
                     stack.setRemainder(EmiStack.of(remainder));
             }
         }
-        this.output = List.of(EmiStack.of(recipe.getResultItem()));
+        this.output = List.of(EmiStack.of(recipe.getResultItem(null)));
     }
 
     @Override

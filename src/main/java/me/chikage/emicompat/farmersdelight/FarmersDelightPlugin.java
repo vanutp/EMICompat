@@ -19,7 +19,7 @@ import me.chikage.emicompat.farmersdelight.recipe.EmiCuttingBoardRecipe;
 import me.chikage.emicompat.farmersdelight.recipe.EmiDecompositionRecipe;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -58,7 +58,7 @@ public class FarmersDelightPlugin implements EmiPlugin {
         registry.addRecipe(new EmiDecompositionRecipe(
                 List.of(EmiIngredient.of(Ingredient.of(BlocksRegistry.ORGANIC_COMPOST.get()))),
                 List.of(EmiStack.of(BlocksRegistry.RICH_SOIL.get())),
-                Registry.BLOCK.getTag(TagsRegistry.COMPOST_ACTIVATORS).stream()
+                BuiltInRegistries.BLOCK.getTag(TagsRegistry.COMPOST_ACTIVATORS).stream()
                         .parallel()
                         .flatMap(HolderSet::stream)
                         .map(Holder::value)

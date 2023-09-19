@@ -1,7 +1,7 @@
 package me.chikage.emicompat.createaddition.recipe;
 
 
-import com.mrh0.createaddition.blocks.tesla_coil.TeslaCoil;
+import com.mrh0.createaddition.blocks.tesla_coil.TeslaCoilBlock;
 import com.mrh0.createaddition.index.CABlocks;
 import com.mrh0.createaddition.recipe.charging.ChargingRecipe;
 import com.simibubi.create.compat.emi.CreateEmiAnimations;
@@ -21,7 +21,7 @@ public class EMIChargingRecipe extends CreateEmiRecipe<ChargingRecipe> {
         super(CreateAdditionPlugin.Charging, recipe, 177, 53, c -> {
         });
         this.input = List.of(EmiIngredient.of(recipe.ingredient));
-        this.output = List.of(EmiStack.of(recipe.getResultItem()));
+        this.output = List.of(EmiStack.of(recipe.getResultItem(null)));
     }
 
     @Override
@@ -39,7 +39,7 @@ public class EMIChargingRecipe extends CreateEmiRecipe<ChargingRecipe> {
         widgets.addDrawable(48, 44, 0, 0, (matrices, mouseX, mouseY, delta) -> {
             int scale = 22;
 
-            CreateEmiAnimations.blockElement(CABlocks.TESLA_COIL.getDefaultState().setValue(TeslaCoil.FACING, Direction.DOWN).setValue(TeslaCoil.POWERED, true))
+            CreateEmiAnimations.blockElement(CABlocks.TESLA_COIL.getDefaultState().setValue(TeslaCoilBlock.FACING, Direction.DOWN).setValue(TeslaCoilBlock.POWERED, true))
                     .rotateBlock(22.5, 22.5, 0)
                     .scale(scale)
                     .render(matrices);

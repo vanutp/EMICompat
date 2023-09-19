@@ -18,7 +18,7 @@ public class EMIRollingMillRecipe extends CreateEmiRecipe<RollingRecipe> {
         super(CreateAdditionPlugin.RollingMill, recipe, 177, 53, c -> {
         });
         this.input = List.of(EmiIngredient.of(recipe.getIngredient()));
-        this.output = List.of(EmiStack.of(recipe.getResultItem()));
+        this.output = List.of(EmiStack.of(recipe.getResultItem(null)));
     }
 
     @Override
